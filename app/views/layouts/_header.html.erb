@@ -3,9 +3,14 @@
     <%= link_to "ペンパチズム", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", help_path %></li>
-        <li><%= link_to "Log in", '#' %></li>
+        <% if login_user_signed_in? %>
+          <li><%= link_to "ログアウト", destroy_login_user_session, method: :delete %></li>
+          <li><%= link_to "トップ", rackets_path %></li>
+          <li><%= link_to "投稿画面へ", new_rackets_path %></li>
+        <% else %>
+          <li><%= link_to "ログイン", new_login_user_session_path, class: 'post' %></li>
+          <li><%= link_to "新規登録", new_login_user_registration_path, class: 'post' %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
