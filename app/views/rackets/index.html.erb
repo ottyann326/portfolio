@@ -1,0 +1,8 @@
+<h1>購入商品一覧</h1>
+<% if login_user_signed_in? %>
+  <% @rackets.each do |racket| %>
+    <p><%= racket.name %>：<%= racket.price %></p>
+  <% end %>
+<% else %>
+  <p>ログインしてください</p>
+<% end %>
