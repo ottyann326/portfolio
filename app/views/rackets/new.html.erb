@@ -1,0 +1,6 @@
+<%= form_for @racket, method: :post do |f| %>
+  <h1>ラケットの情報を入力してください</h1>
+    <p>ラケット名:<%= f.text_field :name %></p>
+    <p>値段:<%= f.text_field :price %></p>
+    <input type="submit" value="送信">
+<% end %>
